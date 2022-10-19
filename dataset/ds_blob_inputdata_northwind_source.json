@@ -1,0 +1,28 @@
+{
+	"name": "ds_blob_inputdata_northwind_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB_Input",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Source": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().Source",
+					"type": "Expression"
+				},
+				"folderPath": "Northwind",
+				"container": "inputdata"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

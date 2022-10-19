@@ -1,0 +1,28 @@
+{
+	"name": "test_SQLDB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQLDB",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"DBNAME": {
+					"value": "@dataset().DBNAME",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"DBNAME": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "orders"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

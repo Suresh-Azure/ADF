@@ -1,0 +1,17 @@
+{
+	"name": "ls_SQL_DESKTOP_on_preme",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=DESKTOP-2IB6IFP;initial catalog=ADF_SQL",
+			"userName": "DESKTOP-2IB6IFP\\HOME UEFI 21H2",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhN2ExZGNkNC02NDUxLTRkZDItOTc1Ni0xYjVlYTc5MGY5NDQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "Self-Hosted",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

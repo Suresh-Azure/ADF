@@ -1,0 +1,25 @@
+{
+	"name": "ds_SQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQLDB_Target",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SourceTable": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().SourceTable",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,27 @@
+{
+	"name": "tri_Sales",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Parameterized Pipeline",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"TableName": "Sales.csv"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 5,
+				"startTime": "2022-10-01T05:09:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

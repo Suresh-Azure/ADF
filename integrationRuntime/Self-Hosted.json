@@ -1,0 +1,7 @@
+{
+	"name": "Self-Hosted",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Self-Hosted Integration Runtime to manage connectivity b/w on-premises and cloud resources."
+	}
+}
