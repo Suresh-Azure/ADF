@@ -1,0 +1,39 @@
+{
+	"name": "ds_inputdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB_Input",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "inputdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ENAME",
+				"type": "String"
+			},
+			{
+				"name": "EAGE",
+				"type": "String"
+			},
+			{
+				"name": "EPHONE",
+				"type": "String"
+			},
+			{
+				"name": " test",
+				"type": "String"
+			}
+		]
+	}
+}
