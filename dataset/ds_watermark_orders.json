@@ -1,0 +1,27 @@
+{
+	"name": "ds_watermark_orders",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_ADFB1Project",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "TableName",
+				"type": "varchar"
+			},
+			{
+				"name": "WatermarkValue",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Watermarktable_Orders"
+		}
+	}
+}
