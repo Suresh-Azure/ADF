@@ -1,0 +1,17 @@
+{
+	"name": "ls_ADFB1Project",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=DESKTOP-2IB6IFP;initial catalog=ADFB1PROJECT",
+			"userName": "DESKTOP-2IB6IFP\\HOME UEFI 21H2",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlODdkYWQ1OC1lMGIyLTRhNjAtODI5Yi0zYjY4NzY4ZTJmYmUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "Self-Hosted",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
