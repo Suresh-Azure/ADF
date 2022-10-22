@@ -1,0 +1,35 @@
+{
+	"name": "ds_ADLS_Stage_Northwnd",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_input",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DestinationTableName": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Mini Project"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().DestinationTableName",
+					"type": "Expression"
+				},
+				"folderPath": "northwnd",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

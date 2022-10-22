@@ -1,0 +1,33 @@
+{
+	"name": "ds_Northwnd_Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_SQL_DESKTOP_on_preme",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SourceTable": {
+				"type": "string"
+			},
+			"SchemaName": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Mini Project"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().SchemaName",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().SourceTable",
+				"type": "Expression"
+			}
+		}
+	}
+}
