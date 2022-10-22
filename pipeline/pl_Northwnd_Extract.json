@@ -105,8 +105,14 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DS_ADLS_validation",
-									"type": "DatasetReference"
+									"referenceName": "ds_ADLS_Stage_Northwnd",
+									"type": "DatasetReference",
+									"parameters": {
+										"DestinationTableName": {
+											"value": "@item().TABLE_NAME",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
