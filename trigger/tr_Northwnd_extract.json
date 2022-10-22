@@ -1,0 +1,27 @@
+{
+	"name": "tr_Northwnd_extract",
+	"properties": {
+		"description": "Northwnd database extract from SQL DB to ADLS Stage",
+		"annotations": [
+			"Northwnd"
+		],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_Northwnd_Extract",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2022-10-23T00:07:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
