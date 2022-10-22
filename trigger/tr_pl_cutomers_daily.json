@@ -1,0 +1,27 @@
+{
+	"name": "tr_pl_cutomers_daily",
+	"properties": {
+		"annotations": [
+			"Northwnd",
+			"customers"
+		],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_customers",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2022-10-23T00:33:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
