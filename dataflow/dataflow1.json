@@ -1,0 +1,54 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"folder": {
+			"name": "Mini Project/Transformations"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "LS_ADLS_input",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          CustomerID as string,",
+				"          CompanyName as string,",
+				"          ContactName as string,",
+				"          ContactTitle as string,",
+				"          Address as string,",
+				"          City as string,",
+				"          Region as string,",
+				"          PostalCode as string,",
+				"          Country as string,",
+				"          Phone as string,",
+				"          Fax as string",
+				"     ),",
+				"     useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'input',",
+				"     folderPath: 'northwnd',",
+				"     fileName: 'Customers',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true) ~> source1",
+				"source1 derive(Region = iif(isNull(Region),Region,'NA')) ~> derivedColumn1"
+			]
+		}
+	}
+}
