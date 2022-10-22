@@ -1,0 +1,93 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfp1demo"
+		},
+		"LS_ADLS_input_accountKey": {
+			"value": ""
+		},
+		"LS_BLOB_Input_connectionString": {
+			"value": ""
+		},
+		"LS_SQLDB_connectionString": {
+			"value": ""
+		},
+		"LS_SQLDB_Target_connectionString": {
+			"value": ""
+		},
+		"ls_ADFB1Project_connectionString": {
+			"value": ""
+		},
+		"ls_ADFB1Project_password": {
+			"value": ""
+		},
+		"ls_SQL_DESKTOP_on_preme_connectionString": {
+			"value": ""
+		},
+		"ls_SQL_DESKTOP_on_preme_password": {
+			"value": ""
+		},
+		"ls_adls_source_accountKey": {
+			"value": ""
+		},
+		"ls_blob_source_connectionString": {
+			"value": ""
+		},
+		"ls_AZURESQL_Target_connectionString": {
+			"value": ""
+		},
+		"LS_ADLS_input_properties_typeProperties_url": {
+			"value": "https://adfp1adls2.dfs.core.windows.net/"
+		},
+		"ls_ADFB1Project_properties_typeProperties_userName": {
+			"value": "DESKTOP-2IB6IFP\\HOME UEFI 21H2"
+		},
+		"ls_SQL_DESKTOP_on_preme_properties_typeProperties_userName": {
+			"value": "DESKTOP-2IB6IFP\\HOME UEFI 21H2"
+		},
+		"ls_adls_source_properties_typeProperties_url": {
+			"value": "https://adfp1adls2.dfs.core.windows.net/"
+		},
+		"tri_Sales_properties_Parameterized Pipeline_parameters_TableName": {
+			"value": "Sales.csv"
+		},
+		"tri_order_properties_Parameterized Pipeline_parameters_TableName": {
+			"value": "Orders.csv"
+		},
+		"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "ssis-deployment.database.windows.net"
+		},
+		"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"value": "sqladmin"
+		},
+		"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"value": ""
+		},
+		"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "ssis01.database.windows.net"
+		},
+		"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"value": "sqladmin"
+		},
+		"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"value": ""
+		},
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "adfp1.database.windows.net"
+		},
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"value": "SQLadmin"
+		},
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"value": ""
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

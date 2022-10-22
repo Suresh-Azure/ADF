@@ -1,0 +1,301 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfp1demo"
+		},
+		"LS_ADLS_input_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_input'"
+		},
+		"LS_BLOB_Input_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_BLOB_Input'"
+		},
+		"LS_SQLDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQLDB'"
+		},
+		"LS_SQLDB_Target_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQLDB_Target'"
+		},
+		"ls_ADFB1Project_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_ADFB1Project'"
+		},
+		"ls_ADFB1Project_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_ADFB1Project'"
+		},
+		"ls_SQL_DESKTOP_on_preme_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_SQL_DESKTOP_on_preme'"
+		},
+		"ls_SQL_DESKTOP_on_preme_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_SQL_DESKTOP_on_preme'"
+		},
+		"ls_adls_source_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_source'"
+		},
+		"ls_blob_source_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blob_source'"
+		},
+		"ls_AZURESQL_Target_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_AZURESQL_Target'"
+		},
+		"LS_ADLS_input_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfp1adls2.dfs.core.windows.net/"
+		},
+		"ls_ADFB1Project_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-2IB6IFP\\HOME UEFI 21H2"
+		},
+		"ls_SQL_DESKTOP_on_preme_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-2IB6IFP\\HOME UEFI 21H2"
+		},
+		"ls_adls_source_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfp1adls2.dfs.core.windows.net/"
+		},
+		"tri_Sales_properties_Parameterized Pipeline_parameters_TableName": {
+			"type": "string",
+			"defaultValue": "Sales.csv"
+		},
+		"tri_order_properties_Parameterized Pipeline_parameters_TableName": {
+			"type": "string",
+			"defaultValue": "Orders.csv"
+		},
+		"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "ssis-deployment.database.windows.net"
+		},
+		"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "sqladmin"
+		},
+		"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
+		},
+		"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "ssis01.database.windows.net"
+		},
+		"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "sqladmin"
+		},
+		"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
+		},
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "adfp1.database.windows.net"
+		},
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "SQLadmin"
+		},
+		"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfp1demo_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_ADLS_input_accountKey": {
+						"value": "[parameters('LS_ADLS_input_accountKey')]"
+					},
+					"LS_BLOB_Input_connectionString": {
+						"value": "[parameters('LS_BLOB_Input_connectionString')]"
+					},
+					"LS_SQLDB_connectionString": {
+						"value": "[parameters('LS_SQLDB_connectionString')]"
+					},
+					"LS_SQLDB_Target_connectionString": {
+						"value": "[parameters('LS_SQLDB_Target_connectionString')]"
+					},
+					"ls_adls_source_accountKey": {
+						"value": "[parameters('ls_adls_source_accountKey')]"
+					},
+					"ls_blob_source_connectionString": {
+						"value": "[parameters('ls_blob_source_connectionString')]"
+					},
+					"ls_AZURESQL_Target_connectionString": {
+						"value": "[parameters('ls_AZURESQL_Target_connectionString')]"
+					},
+					"LS_ADLS_input_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_input_properties_typeProperties_url')]"
+					},
+					"ls_adls_source_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_source_properties_typeProperties_url')]"
+					},
+					"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
+					},
+					"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
+					},
+					"integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('integrationRuntime1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adfp1demo_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfp1demo_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adfp1demo_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_ADFB1Project_connectionString": {
+						"value": "[parameters('ls_ADFB1Project_connectionString')]"
+					},
+					"ls_ADFB1Project_password": {
+						"value": "[parameters('ls_ADFB1Project_password')]"
+					},
+					"ls_SQL_DESKTOP_on_preme_connectionString": {
+						"value": "[parameters('ls_SQL_DESKTOP_on_preme_connectionString')]"
+					},
+					"ls_SQL_DESKTOP_on_preme_password": {
+						"value": "[parameters('ls_SQL_DESKTOP_on_preme_password')]"
+					},
+					"ls_ADFB1Project_properties_typeProperties_userName": {
+						"value": "[parameters('ls_ADFB1Project_properties_typeProperties_userName')]"
+					},
+					"ls_SQL_DESKTOP_on_preme_properties_typeProperties_userName": {
+						"value": "[parameters('ls_SQL_DESKTOP_on_preme_properties_typeProperties_userName')]"
+					},
+					"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
+					},
+					"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
+					},
+					"SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('SSIS-Deployment_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+					},
+					"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
+					},
+					"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
+					},
+					"SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('SSIS_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfp1demo_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "adfp1demo_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfp1demo_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "adfp1demo_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"tri_Sales_properties_Parameterized Pipeline_parameters_TableName": {
+						"value": "[parameters('tri_Sales_properties_Parameterized Pipeline_parameters_TableName')]"
+					},
+					"tri_order_properties_Parameterized Pipeline_parameters_TableName": {
+						"value": "[parameters('tri_order_properties_Parameterized Pipeline_parameters_TableName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfp1demo_ArmTemplate_3')]"
+			]
+		}
+	]
+}
