@@ -1,0 +1,108 @@
+{
+	"name": "df_Employees",
+	"properties": {
+		"folder": {
+			"name": "Mini Project/Transformations"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "LS_ADLS_input",
+						"type": "LinkedServiceReference"
+					},
+					"name": "Employees"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "ls_AZURESQL_Target",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EmployeeID as string,",
+				"          LastName as string,",
+				"          FirstName as string,",
+				"          Title as string,",
+				"          TitleOfCourtesy as string,",
+				"          BirthDate as string,",
+				"          HireDate as string,",
+				"          Address as string,",
+				"          City as string,",
+				"          Region as string,",
+				"          PostalCode as string,",
+				"          Country as string,",
+				"          HomePhone as string,",
+				"          Extension as integer,",
+				"          Photo as string,",
+				"          Notes as string,",
+				"          ReportsTo as integer,",
+				"          PhotoPath as string",
+				"     ),",
+				"     useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'input',",
+				"     folderPath: 'northwnd',",
+				"     fileName: 'Employees',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true) ~> Employees",
+				"Employees derive({FULL NAME} = concat(concat(TitleOfCourtesy, FirstName),LastName),",
+				"          Age = round(monthsBetween(currentDate('UTC'),  toDate(BirthDate))/12),",
+				"          Region = iif(isNull(Region), Region, 'NA'),",
+				"          BirthDate = toDate(BirthDate),",
+				"          HireDate = toDate(HireDate)) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          EmployeeID,",
+				"          {FULL NAME},",
+				"          LastName,",
+				"          FirstName,",
+				"          Title,",
+				"          TitleOfCourtesy,",
+				"          BirthDate,",
+				"          Age,",
+				"          HireDate,",
+				"          Address,",
+				"          City,",
+				"          Region,",
+				"          PostalCode,",
+				"          Country,",
+				"          HomePhone",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: 'dbo',",
+				"     tableName: 'Customers',",
+				"     insertable: true,",
+				"     updateable: false,",
+				"     deletable: false,",
+				"     upsertable: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}
